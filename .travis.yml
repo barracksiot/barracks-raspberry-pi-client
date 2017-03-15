@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker pull debian
+
+script:
+  - 'docker run —rm -w $TRAVIS_BUILD_DIR -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR:rw debian /bin/bash -c 
+  "cd barracks-raspberry-pi-client && dpkg-deb --build barrackspiclient"'
+
+deploy:
+  provider: releases
+  api_key: 
+    secure: "Uu6CfVc6AOa11KPoPDRdhT5BJe9FL0efst258GkuzWBfJ6yTDVC7TxqWJtbB51T+LSlbxSLl0KsW53d4FP4FqpKkAIWVSxFtBUxM4OoORZd2wOCkkzfqzP2tcs2z6wyY6n+tqOreSNovOa8/JrY3rOHJxe9lvqIbrHBcAte1Y7SYdn5SkzwdWUyrh+4KJek6WL3a/XDGsZW3e1iTjrxb6EPLV/YUx881QhDNu8ewBhH7q4oQyLkOFSJlR0UPKA0xZz6kCOxeKttG7a7tTdWXiTHYOsiUlmcNhGGlQVxTOn9IcoMtZakKm0GIt3xCyEA6igqgo8um26yo6XD7WuIQfouUI0J37TmZD8H9U5oLPsz4oEHZ8mjme4MEpAJPzSiHaoLyo1ir0vd7ehqnxSDHnRaqiF3dDLv8zjD1iCWGHXVnKpzd7XTlqqZYGbykkc0WmE2y1EgJStLE4BgJE0RRF65NfDLHtwApBDT7B3lP4LfhtpbmzQCuDsIw8VtPS3nSjXhbI8MthyUmz+YdOq4UkDgn2XflgHbtMOgg2baNHh5gOA7aIKrhbVBxWqMI8VqStKQX6bBXV08GIGjCfBB/dkJNNmxvzdR5JvuEyUoChsHecdXMRQCw3E7zJalXps6PFAtYA74xLwyucRBxxes2iBVSAQUg1b+5FSUTOUKYew4="
+  file: "barrackspiclient.deb"
+  skip_cleanup: true
+  on:
+    tags: true
