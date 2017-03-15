@@ -62,7 +62,7 @@ function installUpdate(file) {
 
 var inProgress;
 
-setInterval(function () {
+function checkUpdate() {
   if (!inProgress) {
     inProgress = true;
     var newVersion;
@@ -101,4 +101,8 @@ setInterval(function () {
       inProgress = false;
     });
   }
-}, config.pingInterval);
+}
+
+checkUpdate();
+
+setInterval(checkUpdate, config.pingInterval);
