@@ -7,7 +7,7 @@ install:
   - docker pull debian
 
 script:
-  - 'docker run —rm -w $TRAVIS_BUILD_DIR -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR:rw debian /bin/bash -c 
+  - 'docker run -w $TRAVIS_BUILD_DIR -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR:rw debian /bin/bash -c 
   "dpkg-deb --build barrackspiclient"'
 
 deploy:
