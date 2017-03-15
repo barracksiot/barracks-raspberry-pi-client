@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "Enter your API key : "
+read api_key
+sed -i "s/BARRACKS_API_KEY=DEFAULT/BARRACKS_API_KEY=$api_key/" /etc/default/barracks
+chmod a+x /usr/local/barracks-client/index.js
+chmod a+x /usr/local/barracks-client/start.sh
+systemctl enable barracks.service
+systemctl start barracks.service

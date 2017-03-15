@@ -1,0 +1,11 @@
+Package: barrackspiclient
+Version: 0.0-1
+Section: base
+Priority: optional
+Architecture: all
+Depends: nodejs
+Maintainer: Paul Aigueperse <paul@barracks.io>
+Build-Depends: nodejs
+Description: Barracks ready package to push update to your Raspeberry-pi
+ Install Barracks as a service into your rasbian distribtuion
+ so you can manage your packages
