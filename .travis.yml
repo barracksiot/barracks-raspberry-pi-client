@@ -8,7 +8,7 @@ install:
 
 script:
   - 'docker run —rm -w $TRAVIS_BUILD_DIR -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR:rw debian /bin/bash -c 
-  "cd barracks-raspberry-pi-client && dpkg-deb --build barrackspiclient"'
+  "dpkg-deb --build barrackspiclient"'
 
 deploy:
   provider: releases
