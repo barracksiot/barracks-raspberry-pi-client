@@ -92,10 +92,12 @@ function checkUpdate() {
         return saveCurrentVersion(newVersion);
       }
     }).then(function () {
+      inProgress = false;
       if (!skip) {
         console.log('New version ' + newVersion + ' has been installed');
+        checkUpdate();
       }
-      inProgress = false;
+      
     }).catch(function (err) {
       console.log('Error during update: ' + JSON.stringify(err));
       inProgress = false;

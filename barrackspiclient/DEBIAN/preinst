@@ -1,1 +1,7 @@
 #!/bin/sh
+if [ "`systemctl is-active barracks.service`" == "active" ] 
+then
+    echo "Stop current barracks service"
+    systemctl stop barracks.service
+    exit 0
+fi
