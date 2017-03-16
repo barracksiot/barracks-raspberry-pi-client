@@ -1,7 +1,9 @@
 #!/bin/sh
-if [ "`systemctl is-active barracks.service`" == "active" ] 
+status=`systemctl is-active barracks.service`
+if [ "$status" = "active" ] 
 then
     echo "Stop current barracks service"
     systemctl stop barracks.service
+    systemctl daemon-reload
     exit 0
 fi
