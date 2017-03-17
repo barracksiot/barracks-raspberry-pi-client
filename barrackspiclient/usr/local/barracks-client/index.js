@@ -70,7 +70,6 @@ function checkUpdate() {
     console.log('Checking for update...');
     getCurrentVersion().then(function (version) {
       console.log('Current version is ' + version);
-      console.log('API KEY USED = '+barracks.apiKey);
       return barracks.checkUpdate(version);
     }).then(function (update) {
       if (update) {
